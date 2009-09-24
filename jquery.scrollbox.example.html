@@ -1,0 +1,225 @@
+<html>
+	<head>
+		<title>jquery.scrollbox example</title>
+		
+		<!-- For sanity's sake -->
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.0r4/build/reset/reset-min.css">
+		
+		<style>
+			body { font-family: sans-serif; }
+			a {text-decoration: none; color: maroon;}
+			h1 { font-size: 20px; font-weight: bold; margin: 10px;}
+			h2 { font-size: 16px;}
+			.spacer {margin: 10px;}
+			#container{
+				width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.fade {
+				filter:alpha(opacity=50);
+				-moz-opacity:.50;
+				opacity:.50;
+			}
+			.listing{
+				padding: 10px;
+				width: 600px;
+				margin-top: 10px;
+				margin-right: auto;
+				margin-left: auto;
+				color: #191970;
+				background-color: #EEE8AA;
+			}
+			#para_box {
+				width: 600px;
+				margin-right: auto;
+				margin-left: auto;
+				padding: 10px;
+				height: 130px;
+				border: thin solid black;
+			} #bar_controls{
+				text-align: center;
+				margin-bottom: 10px;
+			} .bar_prev {
+				margin-right: 20px;
+			}
+			.lorem {
+				font-size: 10px;
+				font-style: italic;
+			}
+			#bounding_box {
+				width: 600px;
+				margin-right: auto;
+				margin-left: auto;
+				height: 110px;
+				border: thin solid black;
+			}
+			#foo {
+				height: 110px;
+				margin-left: 30px;
+				margin-right: 30px;
+				width: 540px;
+				
+			}
+			#foo .box {
+				width: 140px;
+				height: 60px;
+				padding: 10px;
+				margin: 10px;
+				border: thin solid black;
+				float: left;
+			}
+			.hidden {
+				display: none;
+			}
+			.floatleft 	{ float: left;  }
+			.floatright { float: right; }
+			.clearright { clear: right; }
+		</style>
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.scrollbox.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($){
+				$("#bar").scrollbox({
+					fadeClass: "fade",
+					itemSelector: "#bar p",
+					vertical: true,
+					numShown: 1,
+				});
+				$("#foo").scrollbox({
+					fadeClass: "fade",
+					vertical: false,
+					numShown: 3,
+				});
+			});
+		</script>
+		
+	</head>
+	<body> <div id="container">
+		<h1 style="text-align: center;"> jquery.scrollbox demo </h1>
+		
+		<h2 style="text-align: center;"> by <a href="http://it.fuelsyourcyb.org/ejconlon">Eric Conlon</a> </h2>
+		
+		<div class="spacer">&nbsp;</div>
+		
+		<p style="background-color: #FFE4E1; padding: 10px;">I have recently discovered that Opera 10 does not like this code.
+			 This will be fixed shortly. Thanks.</p>
+		
+		<div class="spacer">&nbsp;</div>
+		
+		<p> jquery.scrollbox is a <a href="http://jquery.com">jQuery</a> extension that allows you to easily and discretely scroll content with few changes to your markup. For example, it could be used vertically on <span style="color: purple">&lt;p&gt;</span> elements: </p>
+<pre class="listing">
+$("#bar").scrollbox({
+	fadeClass: "fade",
+	itemSelector: "#bar p",
+	vertical: true,
+	numShown: 1,
+});
+</pre>
+		
+		<div class="spacer">&nbsp;</div>
+		
+		
+		<div id="para_box">
+			<div id="bar_controls">
+				<a href="javascript:;" class="bar_prev">Previous paragraph</a>
+				<a href="javascript:;" class="bar_next">Next paragraph</a>	
+			</div>
+			<div id="bar">
+				<p class="lorem">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis dapibus felis, in aliquam ipsum porta facilisis. Phasellus neque est, consequat sit amet auctor sed, lacinia sit amet neque. Vestibulum non ipsum diam, in feugiat nibh. Praesent interdum justo vitae quam dignissim blandit. Morbi faucibus ultrices varius. Nulla facilisi. Nullam et leo in justo dictum convallis. Nulla euismod pharetra massa pulvinar varius. Duis egestas est et sapien euismod eget faucibus odio pellentesque. Duis non eleifend ipsum. In vel ipsum nec lectus egestas porttitor. In venenatis sem a augue feugiat a vehicula velit tincidunt. Nam dignissim leo quis nulla commodo a fringilla est tempus. Cras sit amet metus quam. In hac habitasse platea dictumst. 
+				</p><p class="lorem hidden">
+					Curabitur congue tempor sapien non placerat. Etiam tempus aliquet fermentum. Morbi tincidunt felis vel justo sagittis eu pretium erat lacinia. Donec vestibulum aliquet purus ut vestibulum. Maecenas cursus libero convallis augue dapibus tristique. Sed tincidunt tincidunt ante et aliquam. Suspendisse potenti. Vestibulum mollis orci ut turpis congue vestibulum. Fusce interdum mi id felis aliquam ornare. Mauris non bibendum purus. Sed sed lacus nisl, sit amet consequat augue. Fusce feugiat gravida convallis. Nullam neque nibh, lobortis ut ornare eget, placerat vel mi. In porta tincidunt luctus. Aenean felis enim, tristique nec interdum in, consequat non nisi. Proin metus massa, tempus et varius nec, mattis ac tortor. Maecenas metus sem, bibendum at mollis nec, laoreet nec tortor. Aliquam erat volutpat. 
+				</p><p class="lorem hidden">
+					Nullam dignissim, mauris vitae pulvinar semper, ligula libero fringilla felis, mattis ultrices enim odio eu libero. Suspendisse venenatis urna in erat sagittis gravida. Curabitur non ligula neque, in accumsan arcu. Aliquam erat volutpat. Suspendisse et nisl nibh, nec iaculis metus. Vivamus et velit odio, et congue leo. Phasellus non lectus risus, at sodales orci. Sed vitae dui at ipsum tristique ornare placerat vestibulum elit. Curabitur accumsan est non turpis venenatis mollis. Suspendisse et viverra augue. Suspendisse lorem ligula, semper at ornare in, convallis in sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas id odio volutpat tortor aliquam accumsan. Sed tempus euismod rutrum. Morbi quam justo, ullamcorper vitae pretium non, fringilla nec neque. Ut nunc nulla, placerat sit amet ultrices in, bibendum eu lacus. 
+				</p><p class="lorem hidden">
+					Suspendisse potenti. Etiam feugiat, quam ut consectetur laoreet, nulla lectus condimentum elit, in euismod felis purus vitae libero. Cras pulvinar tellus egestas nulla posuere feugiat. Proin scelerisque consectetur velit, malesuada tristique tellus feugiat a. Nunc ullamcorper ullamcorper eros non ornare. Phasellus non diam eu elit aliquam euismod. Phasellus volutpat molestie urna, et gravida augue congue ac. Ut blandit laoreet est, sed bibendum leo ultrices nec. Nulla facilisi. Vivamus ultrices adipiscing est, at consequat magna mollis quis. Sed consequat egestas erat, eu lobortis arcu rhoncus a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur et orci lorem, vitae imperdiet eros. Sed sed dolor metus, eget fermentum nunc. Maecenas dapibus lectus nec mi bibendum mattis. Proin tincidunt est mauris. Quisque nec massa vel urna commodo viverra ullamcorper ut quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam mollis venenatis nisi ut eleifend. 
+				</p><p class="lorem hidden">
+					Fusce non leo sed ligula tempus viverra. Nunc vel odio purus, aliquet lobortis lectus. Donec tellus ipsum, posuere et blandit in, pellentesque et enim. Aenean non dolor augue, ut aliquet elit. Etiam cursus, felis in tristique dignissim, libero velit luctus mauris, scelerisque varius lectus est id nisl. Nullam sit amet erat pellentesque nunc volutpat auctor a a augue. Etiam cursus magna sit amet velit adipiscing et feugiat sapien semper. Suspendisse potenti. Donec iaculis sollicitudin sem eu suscipit. Vivamus tincidunt, metus eget hendrerit sagittis, justo nulla dictum lacus, a tempus diam turpis nec sem. Cras varius diam ut metus cursus mattis. Aenean erat neque, ullamcorper ut porttitor sed, consectetur at diam. Fusce mollis, dui a semper sodales, diam nulla lacinia augue, nec volutpat erat diam vel nisi. 
+				</p><p class="lorem hidden">
+					Nunc volutpat erat nec diam scelerisque molestie. Quisque commodo, quam eu vestibulum congue, eros dolor dictum leo, eu tempor mi urna ut diam. Aenean fermentum rhoncus orci sed fringilla. Cras euismod varius convallis. Fusce vulputate tellus nec quam tempor a molestie neque bibendum. Cras ultrices tellus sed ipsum gravida ac viverra elit tincidunt. Nam euismod consequat felis, ut ornare urna sagittis et. Pellentesque vel sem at ante ultricies sodales. Donec nec tincidunt velit. Duis ullamcorper neque nec ligula interdum vitae vehicula nulla tincidunt.
+				</p>
+			</div>
+		</div>
+		
+		<div class="spacer">&nbsp;</div>
+		
+		<p> Or horizontally on <span style="color: purple">&lt;div&gt;</span> elements: </p>
+<pre class="listing">
+$("#foo").scrollbox({
+	fadeClass: "fade",
+	vertical: false,
+	numShown: 3,
+});
+</pre>
+		
+		<div class="spacer">&nbsp;</div>
+		
+		<div id="bounding_box">
+			<a href="javascript:;" class="foo_prev floatleft" style="margin-left: 10px;">&laquo;</a>      
+        	<a href="javascript:;" class="foo_next floatright clearright" style="margin-right: 10px;">&raquo;</a>	
+		
+			<div id="foo">
+				<div class="box">
+					<p>1</p>
+				</div>	
+				<div class="box">
+					<p>2</p>
+				</div>
+				<div class="box">
+					<p>3</p>
+				</div>
+				<div class="box hidden">
+					<p>4</p>
+				</div>
+				<div class="box hidden">
+					<p>5</p>
+				</div>
+				<div class="box hidden">
+					<p>6</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="spacer">&nbsp;</div>
+		
+		<p> Here are some some options and their defaults. </p>
+<pre class="listing">
+$("#defElemId").scrollbox({
+	vertical : false,				
+	// ^ true for horizontal
+	 
+	itemSelector : "#"+defElemId+" > *", 
+	// ^ selector for those elements to scroll
+	
+	nextSelector : "."+defElemId+"_next",
+	// ^ selector to set a trigger to scroll
+	
+	prevSelector : "."+defElemId+"_prev",
+	
+	numShown : 3,					
+	// ^ how many things to show at once
+	
+	fadeClass : "fade", 
+	// ^ what class to set next/prevSelector when scroll reaches end
+	
+	maxWidth : 10000000000000, 
+	// ^ usually this will be calculated automagically
+	
+	maxHeight : 10000000000000
+});
+</pre>
+		
+	<div class="spacer">&nbsp;</div>
+	
+	<p> Check out <a href="jquery.scrollbox.js">the source</a> (provided under the MIT license) and <a href="mailto:ejconlon@fuelsyourcyb.org">email me</a> with any questions.</p>
+	
+	<div class="spacer">&nbsp;</div>
+	
+	<p> - Eric </p>
+		
+	<div class="spacer">&nbsp;</div>
+		
+	</div></body>
+</html>
