@@ -51,15 +51,17 @@
 				width: 600px;
 				margin-right: auto;
 				margin-left: auto;
-				height: 110px;
+				height: 130px;
 				border: thin solid black;
 			}
 			#foo {
 				height: 110px;
-				margin-left: 30px;
-				margin-right: 30px;
-				width: 540px;
-				
+				margin-left: auto;
+				margin-right: auto;
+				width: 560px !important;
+				position: relative;
+				top: 5px;
+				left: 10px;
 			}
 			#foo .box {
 				width: 140px;
@@ -103,8 +105,7 @@
 		
 		<div class="spacer">&nbsp;</div>
 		
-		<p style="background-color: #FFE4E1; padding: 10px;">I have recently discovered that Opera 10 does not like this code.
-			 This will be fixed shortly. Thanks.</p>
+		<p style="background-color: #FFE4E1; padding: 10px;">Tested on Firefox 3.5, Safari 4, and Opera 10 (though Opera doesn't animate very smoothly for some reason). The last time I tested it in IE7 it worked fine, but that was a few revisions ago... Please let me know what you find in IE6/7/8.</p>
 		
 		<div class="spacer">&nbsp;</div>
 		
@@ -157,9 +158,9 @@ $("#foo").scrollbox({
 		<div class="spacer">&nbsp;</div>
 		
 		<div id="bounding_box">
-			<a href="javascript:;" class="foo_prev floatleft" style="margin-left: 10px;">&laquo;</a>      
-        	<a href="javascript:;" class="foo_next floatright clearright" style="margin-right: 10px;">&raquo;</a>	
-		
+			<a href="javascript:;" class="foo_prev floatleft" style="margin-left: 10px; margin-top: 5px;">&laquo; Previous</a>      
+        	<a href="javascript:;" class="foo_next floatright clearright" style="margin-right: 10px; margin-top: 5px;">Next &raquo;</a>	
+			<div style="clear: both;"></div>
 			<div id="foo">
 				<div class="box">
 					<p>1</p>

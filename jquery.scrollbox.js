@@ -3,6 +3,8 @@
 // Open source and without warranty under the MIT license, 
 // http://www.opensource.org/licenses/mit-license.php
 
+var opera = /Opera/.test(navigator.userAgent);
+
 function max(num1, num2) { if (num1 > num2) {return num1;} else {return num2;} }
 function min(num1, num2) { if (num1 < num2) {return num1;} else {return num2;} }
 function abs(num) { if (num > 0) {return num;} else {return -num;} }
@@ -205,10 +207,15 @@ jQuery.fn.scrollbox = function(options) {
 				self.items[self.idCur+self.numShown].animate({opacity: 0},"fast")
 			}
 			if (self.vertical){
+				//var targetOffset = self.items[self.idCur].offset().top -
+				// jQuery(self.elemSelector).offset().top;
 				var targetOffset = self.items[self.idCur].offset().top -
-				 jQuery(self.elemSelector).offset().top;
-				jQuery(self.elemSelector).animate({scrollTop: "+=" + targetOffset + "px"},
+				 self.items[0].offset().top;
+				jQuery(self.elemSelector).animate({scrollTop: targetOffset + "px"},
 				 "fast", "swing", function(){
+					/*if (opera && self.idCur+self.numShown < self.items.length){
+						self.items[self.idCur+self.numShown].hide();
+					}*/
 					self.scrolling = false;																				
 				});				
 			} else {
@@ -217,6 +224,9 @@ jQuery.fn.scrollbox = function(options) {
 				var targetOffset = self.items[self.idCur].offset().left - self.items[0].offset().left;
 				jQuery(self.elemSelector).animate({scrollLeft:  targetOffset + "px"},
 				 "fast", "swing", function(){
+					if (opera && self.idCur+self.numShown < self.items.length){
+						self.items[self.idCur+self.numShown].hide();
+					}
 					self.scrolling = false;																				
 				});	
 			}
@@ -241,9 +251,14 @@ jQuery.fn.scrollbox = function(options) {
 				self.items[self.idCur-1].animate({opacity: 0},"fast");
 			}
 			if (self.vertical){
+				//var targetOffset = self.items[self.idCur].offset().top -
+				// jQuery(self.elemSelector).offset().top;
 				var targetOffset = self.items[self.idCur].offset().top -
-				 jQuery(self.elemSelector).offset().top;
-				jQuery(self.elemSelector).animate({scrollTop: "+=" + targetOffset + "px"}, "fast", "swing", function(){
+				 self.items[0].offset().top;
+				jQuery(self.elemSelector).animate({scrollTop: targetOffset + "px"}, "fast", "swing", function(){
+					/*if (opera && self.idCur-1>=0){
+						self.items[self.idCur-1].hide();
+					}*/
 					self.scrolling = false;																				
 				});					
 			} else {
@@ -251,6 +266,9 @@ jQuery.fn.scrollbox = function(options) {
 				// jQuery(self.elemSelector).offset().left;
 				var targetOffset = self.items[self.idCur].offset().left - self.items[0].offset().left;
 				jQuery(self.elemSelector).animate({scrollLeft:  targetOffset + "px"}, "fast", "swing", function(){
+					if (opera && self.idCur-1>=0){
+						self.items[self.idCur-1].hide();
+					}
 					self.scrolling = false;																				
 				});	
 			}
@@ -329,7 +347,7 @@ jQuery.fn.scrollbox = function(options) {
 		elem.append(subElem);
 		
 		elem.css('position', 'relative');
-		subElem.css('position', 'absolute').css('float', 'left');
+		subElem.css('position', 'absolute');//.css('float', 'left');
 		elem.css('overflow', 'hidden');
 		
 		jQuery(self.itemSelector).css('opactiy', 1.0);
